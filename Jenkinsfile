@@ -10,12 +10,6 @@ pipeline {
     OFFLINE_API_MODE = 'true'
   }
 
-  stages {
-    stage('Checkout') {
-      steps {
-        checkout scm
-      }
-    }
 
     stage('Show Environment') {
       steps {
