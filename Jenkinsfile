@@ -12,26 +12,11 @@ pipeline {
   }
 
   stages {
-    stage('Checkout') {
-      steps {
-        retry(3) {
-          sh '''
-            set -eux
-            rm -rf .git
-            find . -mindepth 1 -maxdepth 1 -exec rm -rf {} +
-            git init .
-            git remote add origin https://github.com/mostafagamal321/multi-source-procurement-lakehouse.git
-            git fetch --depth=1 --no-tags origin main
-            git checkout -f FETCH_HEAD
-          '''
-        }
-      }
-    }
-
     stage('Show Environment') {
       steps {
         sh '''
           pwd
+          ls -la
           git --version
           docker --version
           docker compose version
@@ -120,18 +105,6 @@ pipeline {
     stage('Archive Reports') {
       steps {
         archiveArtifacts artifacts: 'reports/data_quality_report.md,reports/data_quality_report.json,reports/pipeline_summary.md,dbt/logs/**/*', allowEmptyArchive: true
-      }
-    }
-  }
-
-  post {
-    always {
-      node {
-        sh '''
-          mkdir -p reports
-          docker compose logs --no-color > reports/docker-compose.log || true
-        '''
-        archiveArtifacts artifacts: 'reports/docker-compose.log', allowEmptyArchive: true
       }
     }
   }
