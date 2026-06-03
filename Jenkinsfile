@@ -10,7 +10,7 @@ pipeline {
     OFFLINE_API_MODE = 'true'
   }
 
-
+  stages {
     stage('Show Environment') {
       steps {
         sh '''
