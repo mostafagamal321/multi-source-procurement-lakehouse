@@ -1,0 +1,3 @@
+{"shipment_id": "SHP001", "po_id": "PO1001", "warehouse_id": "WH001", "shipment_status": "delivered", "event_timestamp": "2026-01-14T10:00:00Z", "carrier": "DHL", "delay_reason": null}
+{"shipment_id": "SHP002", "po_id": "PO1002", "warehouse_id": "WH002", "shipment_status": "delayed", "event_timestamp": "2026-01-25T16:30:00Z", "carrier": "FedEx", "delay_reason": "customs"}
+{"shipment_id": "SHP003", "po_id": "PO1003", "warehouse_id": "WH001", "shipment_status": "in_transit", "event_timestamp": "2026-02-12T08:15:00Z", "carrier": "UPS", "delay_reason": null}

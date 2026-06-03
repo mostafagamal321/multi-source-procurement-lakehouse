@@ -1,0 +1,5 @@
+<suppliers>
+  <supplier><supplier_id>SUP001</supplier_id><supplier_name>Acme Industrial</supplier_name><country>US</country><payment_terms>NET30</payment_terms><reliability_score>94.5</reliability_score><created_at>2025-01-01</created_at><updated_at>2026-01-01</updated_at></supplier>
+  <supplier><supplier_id>SUP002</supplier_id><supplier_name>Euro Parts GmbH</supplier_name><country>DE</country><payment_terms>NET45</payment_terms><reliability_score>88.2</reliability_score><created_at>2025-02-01</created_at><updated_at>2026-01-10</updated_at></supplier>
+  <supplier><supplier_id>SUP003</supplier_id><supplier_name>Britannia Components</supplier_name><country>GB</country><payment_terms>NET30</payment_terms><reliability_score>79.0</reliability_score><created_at>2025-03-01</created_at><updated_at>2026-02-01</updated_at></supplier>
+</suppliers>

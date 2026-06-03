@@ -1,0 +1,10 @@
+{
+  "expectation_suite_name": "procurement_silver_suite",
+  "meta": {"notes": "Portfolio-ready suite mirrored by custom pandas quality checks and generated Data Docs."},
+  "expectations": [
+    {"expectation_type": "expect_column_values_to_not_be_null", "kwargs": {"column": "supplier_id"}},
+    {"expectation_type": "expect_column_values_to_be_between", "kwargs": {"column": "invoice_amount", "min_value": 0}},
+    {"expectation_type": "expect_column_values_to_be_in_set", "kwargs": {"column": "invoice_status", "value_set": ["OPEN", "PAID", "OVERDUE", "CANCELLED"]}},
+    {"expectation_type": "expect_column_values_to_be_between", "kwargs": {"column": "exchange_rate", "min_value": 0, "strict_min": true}}
+  ]
+}

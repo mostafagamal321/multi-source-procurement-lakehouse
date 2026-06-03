@@ -1,0 +1,77 @@
+version: 2
+models:
+  - name: stg_suppliers
+    description: Clean supplier master records loaded from XML.
+    columns:
+      - name: supplier_id
+        description: Supplier business key.
+        tests: [not_null, unique]
+      - name: reliability_score
+        description: Supplier reliability percentage.
+  - name: stg_products
+    description: Product catalog loaded from Avro.
+    columns:
+      - name: product_id
+        tests: [not_null, unique]
+      - name: supplier_id
+        tests:
+          - relationships:
+              to: ref('stg_suppliers')
+              field: supplier_id
+  - name: stg_purchase_orders
+    description: Purchase order headers loaded from JSON.
+    columns:
+      - name: po_id
+        tests: [not_null, unique]
+      - name: supplier_id
+        tests:
+          - relationships:
+              to: ref('stg_suppliers')
+              field: supplier_id
+      - name: status
+        tests:
+          - accepted_values:
+              values: ['APPROVED', 'CLOSED', 'CANCELLED']
+  - name: stg_invoices
+    description: Invoice facts loaded from Excel XLSX.
+    columns:
+      - name: invoice_id
+        tests: [not_null, unique]
+      - name: po_id
+        tests:
+          - relationships:
+              to: ref('stg_purchase_orders')
+              field: po_id
+      - name: invoice_status
+        tests:
+          - accepted_values:
+              values: ['OPEN', 'PAID', 'OVERDUE', 'CANCELLED']
+  - name: stg_shipments
+    description: Shipment event stream loaded from NDJSON.
+    columns:
+      - name: shipment_id
+        tests: [not_null]
+      - name: shipment_status
+        tests:
+          - accepted_values:
+              values: ['CREATED', 'IN_TRANSIT', 'DELIVERED', 'DELAYED', 'CANCELLED']
+  - name: stg_inventory
+    description: Inventory snapshots loaded from Parquet.
+    columns:
+      - name: product_id
+        tests: [not_null]
+      - name: warehouse_id
+        tests: [not_null]
+  - name: stg_exchange_rates
+    description: Exchange rates loaded from REST API JSON or mock JSON.
+    columns:
+      - name: from_currency
+        tests: [not_null]
+      - name: exchange_rate
+        tests: [not_null]
+  - name: dim_supplier
+    description: Supplier dimension for Superset dashboards.
+  - name: dim_product
+    description: Product dimension enriched with supplier names.
+  - name: mart_procurement_spend
+    description: Monthly supplier/category procurement spend with USD conversion.

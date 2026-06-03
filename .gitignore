@@ -1,0 +1,13 @@
+.env
+.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.lakehouse/
+logs/
+*.pyc
+reports/*.html
+
+dbt/target/
+dbt/logs/
+

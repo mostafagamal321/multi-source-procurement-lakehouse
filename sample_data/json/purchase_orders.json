@@ -1,0 +1,40 @@
+{
+  "purchase_orders": [
+    {
+      "po_id": "PO1001",
+      "supplier_id": "SUP001",
+      "order_date": "2026-01-05",
+      "expected_delivery_date": "2026-01-15",
+      "currency": "USD",
+      "total_amount": 12500.5,
+      "status": "approved"
+    },
+    {
+      "po_id": "PO1002",
+      "supplier_id": "SUP002",
+      "order_date": "2026-01-11",
+      "expected_delivery_date": "2026-01-21",
+      "currency": "EUR",
+      "total_amount": 8300.0,
+      "status": "closed"
+    },
+    {
+      "po_id": "PO1003",
+      "supplier_id": "SUP003",
+      "order_date": "2026-02-03",
+      "expected_delivery_date": "2026-02-20",
+      "currency": "GBP",
+      "total_amount": 17400.75,
+      "status": "approved"
+    },
+    {
+      "po_id": "PO_BAD",
+      "supplier_id": "SUP004",
+      "order_date": "2026-02-10",
+      "expected_delivery_date": "2026-02-01",
+      "currency": "USD",
+      "total_amount": -50,
+      "status": "approved"
+    }
+  ]
+}

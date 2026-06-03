@@ -1,0 +1,129 @@
+{
+  "overall_score": 96.88,
+  "sources": [
+    {
+      "source_name": "purchase_orders",
+      "total_rows": 4,
+      "passed_rows": 3,
+      "rejected_rows": 1,
+      "duplicate_rows": 0,
+      "score": 75.0,
+      "checks": {
+        "primary_key": [
+          "po_id"
+        ],
+        "freshness_checked": true
+      }
+    },
+    {
+      "source_name": "shipments",
+      "total_rows": 3,
+      "passed_rows": 3,
+      "rejected_rows": 0,
+      "duplicate_rows": 0,
+      "score": 100.0,
+      "checks": {
+        "primary_key": [
+          "shipment_id",
+          "event_timestamp"
+        ],
+        "freshness_checked": true
+      }
+    },
+    {
+      "source_name": "suppliers",
+      "total_rows": 3,
+      "passed_rows": 3,
+      "rejected_rows": 0,
+      "duplicate_rows": 0,
+      "score": 100.0,
+      "checks": {
+        "primary_key": [
+          "supplier_id"
+        ],
+        "freshness_checked": true
+      }
+    },
+    {
+      "source_name": "invoices",
+      "total_rows": 3,
+      "passed_rows": 3,
+      "rejected_rows": 0,
+      "duplicate_rows": 0,
+      "score": 100.0,
+      "checks": {
+        "primary_key": [
+          "invoice_id"
+        ],
+        "freshness_checked": true
+      }
+    },
+    {
+      "source_name": "inventory",
+      "total_rows": 3,
+      "passed_rows": 3,
+      "rejected_rows": 0,
+      "duplicate_rows": 0,
+      "score": 100.0,
+      "checks": {
+        "primary_key": [
+          "snapshot_date",
+          "warehouse_id",
+          "product_id"
+        ],
+        "freshness_checked": true
+      }
+    },
+    {
+      "source_name": "products",
+      "total_rows": 3,
+      "passed_rows": 3,
+      "rejected_rows": 0,
+      "duplicate_rows": 0,
+      "score": 100.0,
+      "checks": {
+        "primary_key": [
+          "product_id"
+        ],
+        "freshness_checked": true
+      }
+    },
+    {
+      "source_name": "warehouse_records",
+      "total_rows": 3,
+      "passed_rows": 3,
+      "rejected_rows": 0,
+      "duplicate_rows": 0,
+      "score": 100.0,
+      "checks": {
+        "primary_key": [
+          "warehouse_id",
+          "product_id"
+        ],
+        "freshness_checked": true
+      }
+    },
+    {
+      "source_name": "exchange_rates",
+      "total_rows": 4,
+      "passed_rows": 4,
+      "rejected_rows": 0,
+      "duplicate_rows": 0,
+      "score": 100.0,
+      "checks": {
+        "primary_key": [
+          "rate_date",
+          "from_currency",
+          "to_currency"
+        ],
+        "freshness_checked": true
+      }
+    }
+  ],
+  "rejected_records_by_source": {
+    "purchase_orders": 1
+  },
+  "rejected_records_by_file_type": {
+    "json": 1
+  }
+}
